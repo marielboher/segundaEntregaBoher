@@ -1,0 +1,141 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+.container-home{
+  width: 100%;
+}
+
+.home{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F5EFE6;
+    padding-bottom: 10px;
+    min-height: 85vh;
+    width: 100%;
+  }
+  .home p{
+    color: #D0B8A8;
+    font-family:'Neue World Font';
+    font-size: 50px;
+    padding: 30px;
+    text-align: center;
+  }
+  .imagen-inicio{
+    margin-top: 5px;
+    height: 470px;
+    margin-bottom: 5px;
+  }
+  
+  .section-1{
+    background-color: #F5EFE6;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+
+  }
+  .new-in{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D0B8A8;
+    color:#F5EFE6;
+    font-size: 20px;
+  }
+
+  .kitchen{
+    margin-left: 40px;
+  }
+  .kitchen h4{
+    color: #D0B8A8;
+    font-size: 22px;
+    padding-bottom: 10px;
+  }
+  .kitchen p{
+    color: #AD8B73;
+    width: 70%;
+    padding-bottom: 10px;
+
+  }
+  .imagen-kitchen{
+    height: 450px;
+    padding-left: 15px;
+  }
+
+  .marco-imagen{
+    border: 1px solid #D0B8A8;
+    height: 480px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .btn-home{
+    border: 1px solid #D0B8A8;
+    background-color: #D0B8A8;
+    border-radius: 5px;
+    font-size: 12px;
+    height: 40px;
+    width: 140px;
+    color: #ffff;
+        box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+
+  }
+
+  .section-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5EFE6;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+  .kids{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    padding-right: 20px;
+
+  }
+  .kids p{
+    text-align: end;
+    width: 70%;
+    color: #AD8B73;
+    padding-bottom: 10px;
+  }
+
+  .kids h4{
+    color: #D0B8A8;
+    padding-bottom: 10px;
+  }
+
+
+
+  @media screen and (max-width: 900px) {
+    .home{
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home p{
+     text-align: center;
+     padding: 40px;
+    }
+    .imagen-inicio{
+      margin-top: 5px;
+      height: 420px;
+      margin-bottom: 25px;
+      width: auto;
+    }
+  }

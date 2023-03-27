@@ -1,0 +1,32 @@
+
+.icon {
+    position: relative;
+  }
+  
+  .cantidad-productos {
+    position: absolute;
+    top: 50px;
+    right: 66px;
+    font-size: 10px;
+    color: #AD8B73;
+    background-color: #F5EFE6;
+    border: 1px solid #D0B8A8;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .cantidad-productos {
+      font-size: 10px;
+      width: 16px;
+      height: 16px;
+      top: -8px;
+      right: -8px;
+    }
+  }
+
