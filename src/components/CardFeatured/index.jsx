@@ -1,10 +1,10 @@
 import React from "react";
-import './card.css'
+import "./card.css";
 
-const CardFeatured = ({imgSrc, text, hover}) => {
+const CardFeatured = ({ imgSrc, text, hover }) => {
   return (
     <div>
-      <div className="card-des">
+      <div className="card-des ">
         <img src={imgSrc}></img>
         <div className="hover">
             <h4>{hover}</h4>

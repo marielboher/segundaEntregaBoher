@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./itemDetailContainer.css";
+import { CartContext } from "../../contexts/CartContext";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ( { data } ) => {
+  const { addProduct } = useContext(CartContext)
   const [producto, setProducto] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -21,6 +23,10 @@ const ItemDetailContainer = () => {
       });
   }, [id]);
 
+  
+
+  // console.log("producto", addProduct)
+
   return (
     <div>
       {isLoading ? (
@@ -35,7 +41,8 @@ const ItemDetailContainer = () => {
             <p>{producto.descripcion}</p>
             <p>{producto.categoria}</p>
             <p>{producto.precio}</p>
-            <button>ADD TO BAG</button>
+            <button className="btn" onClick={() => addProduct(producto)}>ADD TO BAG</button>
+
           </div>
         </div>
       ) : (

@@ -37,17 +37,6 @@
     overflow: hidden;
 }
 
-.card-des img:hover{
-    opacity: 60% ;
-}
-.hover h4{
-    color: #AD8B73;
-    text-transform: uppercase;
-}
-
-.card-des:hover .hover{
-    width: 274px;
-}
 .card-des p{
     font-size: 10px;
     display: flex;
@@ -58,3 +47,17 @@
     
 }
 
+.card-des {
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid rgba(233, 233, 240, 0.2);
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px rgba(237, 237, 241, 0.2);
+   }
+   
+   .card-des:hover {
+    box-shadow: -12px 12px 2px -1px rgba(238, 238, 243, 0.2);
+   }
+
+   

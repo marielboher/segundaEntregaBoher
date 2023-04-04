@@ -1,0 +1,80 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  .close-button {
+    border: none;
+    background-color: transparent;
+    color: #777;
+    font-size: 24px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+
+
+/* .overlay{
+    width: 100vh;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.container-modal{
+    height: 80vh;
+    background-color: #ffff;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(100, 100, 111, 0.2) 8px 7px 29px 8px;
+    padding: 20px;
+}
+
+.encabezado-modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-radius: 1 px solid #E8E8E8;
+}
+
+.boton-cerrar{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease all;
+    border-radius: 5px;
+} */

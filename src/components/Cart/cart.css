@@ -1,0 +1,94 @@
+
+.container-cart{
+    background-color: #F5EFE6;
+    min-height: 85vh;
+    padding: 40px;
+}
+.marco-cart{
+    border:#D0B8A8 1px solid; 
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+}
+.cart-items {
+    padding: 30px;
+    display: grid;
+    display: flex;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+     "imagen producto cantidad precio cancelar";
+}
+
+.imagen-cart {
+    grid-area: imagen;
+}
+.imagen-cart img{
+    height: 150px;
+    border: 1px solid #D0B8A8; 
+}
+
+.producto {
+    grid-area: producto;
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+.producto p{
+    font-size: 16px;
+    color: #AD8B73;
+}
+
+.precio{
+    grid-area: precio;
+    display: flex;
+    align-items: center;
+}
+
+.cantidad {
+    grid-area: cantidad;
+    display: flex;
+    align-items: center;
+}
+
+.precio p{
+    color: #AD8B73;
+}
+.cantidad p{
+    color: #AD8B73;
+} 
+.cancelar {
+    grid-area: cancelar;
+    display: flex;
+    align-items: center;
+}
+
+.cancelar button{
+    border: none;
+    margin-bottom: 15px;
+    color: #AD8B73;
+    background-color: #FFF;
+    width: 25px;
+    height: 25px;
+    border-radius: 20%;
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+}
+
+.counter{
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btn-delete{
+    padding: 2px;
+}
+
+.no-products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-top: 5px;
+    color: #AD8B73;
+}

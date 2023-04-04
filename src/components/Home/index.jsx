@@ -1,5 +1,5 @@
 import "./home.css";
-import fondo from "../../assets/multimedia/fondo.jpg";
+import fondo from "../../assets/multimedia/home3.jpeg";
 import Jarron from"../../assets/multimedia/jarron2.webp"
 import Textile from "../../assets/multimedia/textil3.webp";
 import NewIn from "../NewIn";
@@ -38,7 +38,6 @@ const Home = () => {
         </div>
         <img src={fondo} className="imagen-inicio" />
       </div>
-       <ItemListContainer/> 
       <div className="new-in">
         <h4>NEW IN-STORE</h4>
       </div>
