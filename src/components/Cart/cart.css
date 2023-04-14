@@ -92,3 +92,37 @@
     margin-top: 5px;
     color: #AD8B73;
 }
+
+.finalizar-compra{
+    border: none;
+    margin-bottom: 15px;
+    color: #AD8B73;
+    background-color: #FFF;
+    width: 250px;
+    height: 25px;
+    border-radius: 5%;
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+    margin-top: 5px;
+
+}
+.cont-finalizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vaciar-carrito{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.vaciar-carrito button{
+    border: none;
+    margin-bottom: 15px;
+    color: #AD8B73;
+    background-color: #FFF;
+    width: 150px;
+    height: 25px;
+    border-radius: 5%;
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+}

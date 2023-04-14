@@ -6,10 +6,10 @@ const Productos = ({ producto }) => {
     <Link to={`/item/${producto.id}`}>
       <div className="card-prod">
         <div>
-          <img src={producto.imagen} alt={producto.nombre} />
+          <img src={producto.image} alt={producto.title}/>
           <div className="hover">
-            <h5>{producto.nombre}</h5>
-            <p>Precio: ${producto.precio}</p>
+            <h5>{producto.title}</h5>
+            <p>Precio: ${producto.price}</p>
           </div>
         </div>
       </div>

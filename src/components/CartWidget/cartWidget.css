@@ -5,8 +5,9 @@
   
   .cantidad-productos {
     position: absolute;
-    top: 50px;
-    right: 66px;
+    top: 10%;
+    right: 30%;
+    transform: translate(50%, -50%);
     font-size: 10px;
     color: #AD8B73;
     background-color: #F5EFE6;
@@ -20,13 +21,11 @@
     align-items: center;
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 668px) {
     .cantidad-productos {
-      font-size: 10px;
-      width: 16px;
-      height: 16px;
-      top: -8px;
-      right: -8px;
+      top: 10%;
+      right: 25%;
+      transform: translate(50%, -50%);
     }
   }
 

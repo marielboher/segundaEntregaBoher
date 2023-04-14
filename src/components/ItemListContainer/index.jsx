@@ -1,25 +1,32 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Productos from "../Productos";
-import axios from "axios";
+import db from "../../../db/firebase-config";
+import { getDocs, collection } from "firebase/firestore";
 import "./itemListContainer.css";
 
 const ItemListContainer = () => {
   const [productos, setProducto] = useState([]);
+  const productDB = collection(db, "productos");
   const { categoryName } = useParams();
 
+  const getItems = async () => {
+    const productCollection = await getDocs(productDB);
+    const productos = productCollection.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    if (categoryName) {
+      setProducto(
+        productos.filter((producto) => producto.category === categoryName)
+      );
+    } else {
+      setProducto(productos);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("/database/bbdd.json");
-      if (categoryName) {
-        setProducto(
-          response.data.filter((producto) => producto.categoria === categoryName)
-        );
-      } else {
-        setProducto(response.data);
-      }
-    };
-    fetchData();
+    getItems();
   }, [categoryName]);
 
   return (

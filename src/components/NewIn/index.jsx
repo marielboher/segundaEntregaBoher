@@ -21,7 +21,7 @@ const NewIn = ({
         <p>{text}</p>
         <Link to="/category/vases">
           <button className="cta">
-            <span>Hover me</span>
+            <span>Shop now</span>
             <svg viewBox="0 0 13 10" height="10px" width="15px">
               <path d="M1,5 L11,5"></path>
               <polyline points="8 1 12 5 8 9"></polyline>
@@ -37,7 +37,7 @@ const NewIn = ({
         <p>{text}</p>
         <Link to="/category/textile">
         <button className="cta">
-            <span>Hover me</span>
+            <span>Shop now</span>
             <svg viewBox="0 0 13 10" height="10px" width="15px">
               <path d="M1,5 L11,5"></path>
               <polyline points="8 1 12 5 8 9"></polyline>
