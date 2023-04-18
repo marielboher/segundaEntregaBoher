@@ -4,12 +4,11 @@ import './cartWidget.css'
 import { CartContext } from '../../contexts/CartContext';
 
 const CartWidget = () => {
-  const { cartProducts } = useContext(CartContext);
-  console.log("lenght", cartProducts)
+  const { cartProducts, getTotalQuantity } = useContext(CartContext);
   return (
     <div>
         <LocalMallIcon  className='icon'/>
-        <p className='cantidad-productos'>{cartProducts ? cartProducts.length : 0}</p>
+        <p className='cantidad-productos'>{getTotalQuantity(cartProducts)}</p>
     </div>
   )
 }

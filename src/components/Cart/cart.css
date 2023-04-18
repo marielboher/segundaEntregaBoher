@@ -126,3 +126,104 @@
     border-radius: 5%;
     box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
 }
+.total-cant{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-right: 10px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.total-cant p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    width: 250px;
+    text-align: center;
+    height: 40px;
+    color: #AD8B73;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+
+}
+.total-price{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-right: 10px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.total-price p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    width: 250px;
+    text-align: center;
+    height: 40px;
+    color: #AD8B73;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+}
+
+.button-modal {
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #AD8B73;
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: #AD8B73;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 1em 2.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+   }
+   
+   .button-modal:disabled {
+    pointer-events: none;
+   }
+   
+   .button-modal:hover {
+    color: #fff;
+    background-color: #AD8B73;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+   }
+   
+   .button-modal:active {
+    box-shadow: none;
+    transform: translateY(0);
+   }
+
+   .button-container{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 10px;
+       flex-direction: column;
+   }
+
+   .button-container p{
+       color: #AD8B73;
+   }
+
+  .modal-personalizado{
+      color: #AD8B73;
+  }

@@ -1,34 +1,48 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./cart.css";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
+import Form from "../Form/form";
 
 const Cart = () => {
-  const { cartProducts, addProduct, decrease, handleDelete } =
+  const { cartProducts, addProduct, decrease, handleDelete, getTotalQuantity, getTotalPrice, clear } =
     useContext(CartContext);
+    const [buyerData, setBuyerData] = useState({})
 
-  const order = {
-    buyer: {
-      name: "Mariel",
-      email: "marielbpher@gmail.com",
-      phone: "123123",
-      adress: "roma 12",
-    },
-    items: cartProducts.map((product) => ({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      quantity: product.quantity,
-    })),
-    // total: totalprice()
-  };
+    const handleSubmit = (data) => {
+      setBuyerData(data);
+      getOrder()
+    };
+    const onSubmit = (data) => {
+      setBuyerData(data);
+    };
 
-  const getOrder = () => {
-    const db = getFirestore();
-    const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then(({ id }) => console.log(id));
-  };
+    const order = {
+      buyer: buyerData && {
+        name: buyerData.name || '',
+        email: buyerData.email || '',
+        phone: buyerData.phone || '',
+        adress: buyerData.adress || '',
+      },
+      items: cartProducts.map((product) => ({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        quantity: product.quantity,
+      }))
+    };
+ 
+
+    const getOrder = () => {
+      if (buyerData.name && buyerData.email && buyerData.phone && buyerData.adress && cartProducts.length > 0) {
+        const db = getFirestore();
+        const ordersCollection = collection(db, "orders");
+        addDoc(ordersCollection, order).then(({ id }) => console.log(id));
+        console.log(order);
+      }
+    };
+
 
   return (
     <div className="container-cart">
@@ -55,7 +69,6 @@ const Cart = () => {
                 <p>$ {(product.price * product.quantity).toFixed(2)}</p>
               </div>
               <div className="cancelar">
-                {console.log(product.id)}
                 <button onClick={() => handleDelete(product.id)}>
                   <DeleteIcon className="btn-delete" />
                 </button>
@@ -65,13 +78,35 @@ const Cart = () => {
         ) : (
           <p className="no-products">There are no products in the cart.</p>
         )}
+        <div className="total-cant">
+          <p>quantity of products: {getTotalQuantity(cartProducts)}</p>
+        </div>
+        <div className="total-price">
+          <p>total price: ${getTotalPrice(cartProducts)}</p>
+        </div>
         <div className="vaciar-carrito">
-          <button>Delete all</button>
+          <button className="button-modal" onClick={() => clear()}>Delete all</button>
         </div>
       </div>
-      <div className="cont-finalizar">
-        <button className="finalizar-compra" onClick={getOrder}>Finalizar compra</button>
+      <div className="button-container">
+        <p>You must first complete the form to finalize the order</p>
+      <button type="button" className="button-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Complete form
+      </button>
       </div>
+      <div className="modal modal-personalizado" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body login">
+            <Form onSubmit={handleSubmit} buyerData={buyerData} setBuyerData={setBuyerData}/>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 };
