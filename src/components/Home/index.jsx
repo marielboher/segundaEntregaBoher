@@ -6,23 +6,24 @@ import NewIn from "../NewIn";
 import Featured from "../Featured";
 import ItemListContainer from "../ItemListContainer";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import db from "../../../db/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 const DATABASE = '/database/bbdd.json';
 
 const Home = () => {
+  const productDB = collection(db, "productos");
+  const [productos, setProducto] = useState([]);
 
-    const [productos, setProductos] = useState([]);
-  
-    const getProd = async () => {
-      try {
-        const response = await axios(DATABASE);
-        setProductos(response.data);
-      } catch (error) {
-        console.log("ERROR: " + error);
-      }
-    };
-      
+  const getProd = async () => {
+    const productCollection = await getDocs(productDB);
+    const productos = productCollection.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    setProducto(productos);
+  }
+
     useEffect(() => {
       getProd();
     }, []);

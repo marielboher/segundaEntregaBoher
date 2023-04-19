@@ -63,3 +63,51 @@ padding: 20px;
     }
     
 }
+
+@media screen and (max-width: 550px){
+    
+    .container-cards{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    
+    .details{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 60px;
+      font-family:'Neue World Font';
+    
+    }
+    
+    .details h4{
+      font-size: 50px;
+      color: #F5EFE6;
+    }
+    .details h6{
+      color: #F5EFE6;
+      font-size: 13px;
+      padding-top: 5px;
+      text-align: center;
+    }
+    
+    .details p{
+      color: #F5EFE6;
+      font-size: 12px;
+      width: 40%;
+      text-align: center;
+      padding-top: 30px;
+    }
+    
+    .section-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    }
+
+}

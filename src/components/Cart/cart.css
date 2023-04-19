@@ -227,3 +227,246 @@
   .modal-personalizado{
       color: #AD8B73;
   }
+
+  @media screen and (max-width: 690px){
+
+    .container-cart{
+        background-color: #F5EFE6;
+        min-height: 85vh;
+        padding: 40px;
+    }
+    .marco-cart{
+        border:#D0B8A8 1px solid; 
+        box-shadow: 3px 3px 2px -1px rgba(0,0,0,0.1);
+    }
+    .cart-items {
+        padding: 30px;
+        display: grid;
+        display: flex;
+        justify-content: space-between;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: px;
+        grid-auto-flow: row;
+        grid-template-areas:
+         "imagen producto cantidad precio cancelar";
+    }
+    
+    .imagen-cart {
+        grid-area: imagen;
+    }
+    .imagen-cart img{
+        height: 130px;
+        border: 1px solid #D0B8A8; 
+    }
+    
+    .producto {
+        grid-area: producto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        min-width: 150px;
+    }
+    .producto p{
+        font-size: 14px;
+    }
+    
+    .precio{
+        grid-area: precio;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    
+    .cantidad {
+        grid-area: cantidad;
+        display: flex;
+        align-items: center;
+    }
+    
+
+  }
+
+  @media screen and (max-width: 595px){
+    
+    .imagen-cart {
+        grid-area: imagen;
+    }
+    .imagen-cart img{
+        height: 100px;
+        border: 1px solid #D0B8A8; 
+    }
+    
+    .producto {
+        grid-area: producto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        min-width: 120px;
+    }
+    .producto p{
+        font-size: 13px;
+    }
+    
+    .precio{
+        grid-area: precio;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    
+    .cantidad {
+        grid-area: cantidad;
+        display: flex;
+        align-items: center;
+    }
+    .total-cant p{
+        font-size: 15px;
+    }
+    .total-price p{
+        font-size: 15px;
+    }
+
+  }
+
+  @media screen and (max-width: 535px){
+    .container-cart{
+        padding: 20px;
+    }
+    .imagen-cart {
+        grid-area: imagen;
+    }
+    .imagen-cart img{
+        height: 60px;
+        border: 1px solid #D0B8A8; 
+    }
+    
+    .producto {
+        grid-area: producto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        min-width: 120px;
+    }
+    .producto p{
+        font-size: 13px;
+    }
+    
+    .precio{
+        grid-area: precio;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    
+    .cantidad {
+        grid-area: cantidad;
+        display: flex;
+        align-items: center;
+    }
+    .total-cant p{
+        font-size: 15px;
+    }
+    .total-price p{
+        font-size: 15px;
+    }
+
+  }
+  @media screen and (max-width: 485px){
+    .container-cart{
+        padding: 10px;
+    }
+    .imagen-cart {
+        grid-area: imagen;
+    }
+    .imagen-cart img{
+        height: 40px;
+        border: 1px solid #D0B8A8; 
+        margin-top: 10px;
+    }
+    
+    .producto {
+        grid-area: producto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        min-width: 120px;
+    }
+    .producto p{
+        font-size: 11px;
+    }
+    
+    .precio{
+        grid-area: precio;
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+    }
+    .cantidad p{
+        font-size: 11px;
+    }
+    
+    .cantidad {
+        grid-area: cantidad;
+        display: flex;
+        align-items: center;
+    }
+    .total-cant p{
+        font-size: 13px;
+    }
+    .total-price p{
+        font-size: 13px;
+    }
+
+  }
+
+  @media screen and (max-width: 390px){
+    .container-cart{
+        padding: 10px;
+    }
+    .imagen-cart {
+        grid-area: imagen;
+    }
+    .imagen-cart img{
+        height: 25px;
+        border: 1px solid #D0B8A8; 
+        margin-top: 10px;
+    }
+    
+    .producto {
+        min-width: 80px;
+    }
+    .producto p{
+        font-size: 11px;
+    }
+    
+    .precio{
+        grid-area: precio;
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+    }
+    .cantidad p{
+        font-size: 11px;
+    }
+    
+    .cantidad {
+        grid-area: cantidad;
+        display: flex;
+        align-items: center;
+    }
+
+    .total-cant p{
+        font-size: 13px;
+        width: 190px;
+
+    }
+    .total-price p{
+        font-size: 13px;
+        width: 190px;
+    }
+  }

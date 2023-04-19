@@ -4,7 +4,7 @@ import "./card.css";
 const CardFeatured = ({ imgSrc, text, hover }) => {
   return (
     <div>
-      <div className="card-des ">
+      <div className="card-des">
         <img src={imgSrc}></img>
         <div className="hover">
             <h4>{hover}</h4>

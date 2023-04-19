@@ -3,9 +3,8 @@ import { CartContext } from "../../contexts/CartContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./cart.css";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
-import Form from "../Form/form";
+import Form from "../Checkout/form";
 import Swal from 'sweetalert2';
-
 
 const Cart = () => {
   const {
@@ -31,9 +30,6 @@ const Cart = () => {
     getOrder();
   };
 
-  const handlePurchase = () => {
-    clear();
-  };
 
   const [orderId, setOrderId] = useState("");
 
@@ -56,10 +52,22 @@ const Cart = () => {
     Swal.fire({
       position: "top-end",
       icon: "success",
-      title: `Successful! order number: ${orderId}`,
+      title: `Successful! order number: ${orderId} -  Date: ${dateStr}`,
       showConfirmButton: false,
       timer: 1500,
     });
+  };
+
+  const handlePurchase = () => {
+    clear();
+  };
+
+  const orderDate = new Date();
+  const dateStr = orderDate.toLocaleDateString();
+
+  const orderWithDate = {
+    ...order,
+    date: dateStr
   };
 
   const getOrder = () => {
@@ -72,7 +80,7 @@ const Cart = () => {
     ) {
       const db = getFirestore();
       const ordersCollection = collection(db, "orders");
-      addDoc(ordersCollection, order).then(({ id }) => {
+      addDoc(ordersCollection, orderWithDate).then(({ id }) => {
         setOrderId(id);
         console.log(id);
         messageOrder(id);
@@ -104,7 +112,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className="precio">
-                <p>$ {(product.price * product.quantity).toFixed(2)}</p>
+                <p>$ {product.price * product.quantity}</p>
               </div>
               <div className="cancelar">
                 <button onClick={() => handleDelete(product.id)}>

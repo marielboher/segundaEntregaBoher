@@ -3,7 +3,7 @@ import "./productos.css";
 
 const Productos = ({ producto }) => {
   return (
-    <Link to={`/item/${producto.id}`}>
+    <Link to={`/item/${producto.id}`}  className="padd-10">
       <div className="card-prod">
         <div>
           <img src={producto.image} alt={producto.title}/>
@@ -15,7 +15,6 @@ const Productos = ({ producto }) => {
       </div>
     </Link>
 
-    
   );
 };
 
