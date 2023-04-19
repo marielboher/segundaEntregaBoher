@@ -3,6 +3,7 @@ import CartWidget from "../CartWidget";
 import Logo from "../../assets/multimedia/logo-cropped.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import PersonIcon from '@mui/icons-material/Person';
 
 
 const Navbar = () => {
@@ -40,6 +41,9 @@ const Navbar = () => {
           <div className={isNavOpen ? "menu" : "menu-click"}>
             <div className="menu-item">
               <ul className="shop">
+              <li>
+                  <Link to="/user" onClick={closeNav}><PersonIcon/></Link>
+                </li>
                 <li>
                   <Link to="/products" onClick={closeNav}>SHOP ALL</Link>
                 </li>

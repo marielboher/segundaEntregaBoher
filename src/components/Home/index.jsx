@@ -4,7 +4,6 @@ import Jarron from"../../assets/multimedia/jarron2.webp"
 import Textile from "../../assets/multimedia/textil3.webp";
 import NewIn from "../NewIn";
 import Featured from "../Featured";
-import ItemListContainer from "../ItemListContainer";
 import { useEffect, useState } from "react";
 import db from "../../../db/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
