@@ -1,44 +1,51 @@
-import React, { useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './from.css'
 
 
-const Form = ({ onSubmit, buyerData, setBuyerData}) => {
+const Form = ({ onSubmit, buyerData, setBuyerData, orderId}) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-        watch
+        watch,
+        setValue
     } = useForm();
-
-    const formRef = useRef();
 
     const watchEmail = watch('email');
     const watchConfirmEmail = watch('confirmEmail');
+    const watchName = watch('name');
+    const watchAdress = watch('adress');
+    const watchPhone  = watch('phone');
 
-    // const messageOrder = 
-    //   Swal.fire({
-    //     position: 'top-end',
-    //     icon: 'success',
-    //     title: 'Successful purchase! order number: ',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   })
-       
+
+    const submitForm = (data) => {
+        onSubmit(data)
+    }
+
+    useEffect(() => {
+        if (buyerData.email) {
+          setValue('email', buyerData.email);
+        }
+        if (buyerData.confirmEmail) {
+          setValue('confirmEmail', buyerData.confirmEmail);
+        }
+      }, [buyerData.email, buyerData.confirmEmail, setValue]);
 
     return (
         <div className='form-compra'>
-            <form onSubmit={handleSubmit(onSubmit)} className="form-estilos">
+            <form onSubmit={handleSubmit(submitForm)} className="form-estilos">
                 <div>
                     <label>Name</label>
                     <input
                         name="name"
                         placeholder='Name'
-                        defaultValue={buyerData.name}
+                        value={buyerData.name}
                         type="text"
                         {...register('name', {
                             required: true,
                         })}
+                        onChange={(e) => setBuyerData({ ...buyerData, name: e.target.value })}
                     />
                 </div>
                 <div>
@@ -46,11 +53,13 @@ const Form = ({ onSubmit, buyerData, setBuyerData}) => {
                     <input
                         name="adress"
                         placeholder='Adress'
-                        defaultValue={buyerData.adress}
+                        value={buyerData.adress}
                         type="text"
                         {...register('adress', {
                             required: true,
+                            
                         })}
+                        onChange={(e) => setBuyerData({ ...buyerData, adress: e.target.value })}
                     />
                 </div>
                 <div>
@@ -58,11 +67,12 @@ const Form = ({ onSubmit, buyerData, setBuyerData}) => {
                     <input
                         name="phone"
                         placeholder='Phone'
-                        defaultValue={buyerData.phone}
+                        value={buyerData.phone}
                         type="text"
                         {...register('phone', {
                             required: true,
                         })}
+                        onChange={(e) => setBuyerData({ ...buyerData, phone: e.target.value })}
                     />
                 </div>
                 <div>
@@ -70,15 +80,16 @@ const Form = ({ onSubmit, buyerData, setBuyerData}) => {
                     <input
                         name="email"
                         placeholder='Email'
-                        defaultValue={buyerData.email}
+                        value={buyerData.email}
                         type="text"
                         {...register('email', {
                             required: true,
                             pattern: /^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/,
                         })}
+                        onChange={(e) => setBuyerData({ ...buyerData, email: e.target.value })}
                     />
-                    {errors.Email?.type === 'pattern' && (
-                        <p>El formato de email es incorrecto</p>
+                    {errors.email?.type === 'pattern' && (
+                        <p>Invalid mail format</p>
                     )}
                 </div>
                 <div>
@@ -86,18 +97,21 @@ const Form = ({ onSubmit, buyerData, setBuyerData}) => {
                     <input
                         name="confirmEmail"
                         placeholder='Confirm Email'
+                        value={buyerData.confirmEmail}
                         type="text"
                         {...register('confirmEmail', {
                             required: true,
                             validate: value =>
-                                value === watchEmail || "Los correos electrónicos no coinciden"
+                                value === watchEmail || "Emails do not match"
                         })}
+                        onChange={(e) => setBuyerData({ ...buyerData, confirmEmail: e.target.value })}
                     />
                     {errors.confirmEmail && (
                         <p>{errors.confirmEmail.message}</p>
                     )}
                 </div>
-                <button type="submit" className='button-submit' disabled={!watchEmail || !watchConfirmEmail}>Submit</button>
+                <button type="submit" className='button-submit' disabled={!watchEmail || !watchConfirmEmail}
+                style={{ opacity: !watchEmail || !watchConfirmEmail || !watchAdress || !watchEmail || !watchName || !watchPhone ? 0.5 : 1, cursor: !watchEmail || !watchConfirmEmail ? 'not-allowed' : 'pointer' }}>Submit</button>
             </form>
         </div>
     );

@@ -4,45 +4,83 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "./cart.css";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import Form from "../Form/form";
+import Swal from 'sweetalert2';
+
 
 const Cart = () => {
-  const { cartProducts, addProduct, decrease, handleDelete, getTotalQuantity, getTotalPrice, clear } =
-    useContext(CartContext);
-    const [buyerData, setBuyerData] = useState({})
+  const {
+    cartProducts,
+    addProduct,
+    decrease,
+    handleDelete,
+    getTotalQuantity,
+    getTotalPrice,
+    clear,
+  } = useContext(CartContext);
 
-    const handleSubmit = (data) => {
-      setBuyerData(data);
-      getOrder()
-    };
-    const onSubmit = (data) => {
-      setBuyerData(data);
-    };
+  const [buyerData, setBuyerData] = useState({
+  name: '',
+  adress: '',
+  phone: '',
+  email: '',
+  confirmEmail: '',
+});
 
-    const order = {
-      buyer: buyerData && {
-        name: buyerData.name || '',
-        email: buyerData.email || '',
-        phone: buyerData.phone || '',
-        adress: buyerData.adress || '',
-      },
-      items: cartProducts.map((product) => ({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity: product.quantity,
-      }))
-    };
- 
+  const handleSubmit = (data) => {
+    setBuyerData(data);
+    getOrder();
+  };
 
-    const getOrder = () => {
-      if (buyerData.name && buyerData.email && buyerData.phone && buyerData.adress && cartProducts.length > 0) {
-        const db = getFirestore();
-        const ordersCollection = collection(db, "orders");
-        addDoc(ordersCollection, order).then(({ id }) => console.log(id));
-        console.log(order);
-      }
-    };
+  const handlePurchase = () => {
+    clear();
+  };
 
+  const [orderId, setOrderId] = useState("");
+
+  const order = {
+    buyer: buyerData && {
+      name: buyerData.name || "",
+      email: buyerData.email || "",
+      phone: buyerData.phone || "",
+      adress: buyerData.adress || "",
+    },
+    items: cartProducts.map((product) => ({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: product.quantity,
+    })),
+  };
+
+  const messageOrder = (orderId) => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `Successful! order number: ${orderId}`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  const getOrder = () => {
+    if (
+      buyerData.name &&
+      buyerData.email &&
+      buyerData.phone &&
+      buyerData.adress &&
+      cartProducts.length > 0
+    ) {
+      const db = getFirestore();
+      const ordersCollection = collection(db, "orders");
+      addDoc(ordersCollection, order).then(({ id }) => {
+        setOrderId(id);
+        console.log(id);
+        messageOrder(id);
+        clear()
+      });
+      console.log(order);
+    }
+  };
 
   return (
     <div className="container-cart">
@@ -85,28 +123,52 @@ const Cart = () => {
           <p>total price: ${getTotalPrice(cartProducts)}</p>
         </div>
         <div className="vaciar-carrito">
-          <button className="button-modal" onClick={() => clear()}>Delete all</button>
+          <button className="button-modal" onClick={() => clear()}>
+            Delete all
+          </button>
         </div>
       </div>
       <div className="button-container">
         <p>You must first complete the form to finalize the order</p>
-      <button type="button" className="button-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Complete form
-      </button>
+        <button
+          type="button"
+          className="button-modal"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          disabled={cartProducts.length === 0}
+        >
+          Complete form
+        </button>
       </div>
-      <div className="modal modal-personalizado" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        className="modal modal-personalizado"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div className="modal-body login">
-            <Form onSubmit={handleSubmit} buyerData={buyerData} setBuyerData={setBuyerData}/>
+              <Form
+                onSubmit={handleSubmit}
+                buyerData={buyerData}
+                setBuyerData={setBuyerData}
+                orderId={orderId}
+                onPurchase={handlePurchase}
+              />
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
