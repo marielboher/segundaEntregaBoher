@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Productos from "../Productos";
 import db from "../../../db/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import "./itemListContainer.css";
+import ItemList from "../ItemList";
 
 const ItemListContainer = () => {
   const [productos, setProducto] = useState([]);
@@ -33,7 +33,7 @@ const ItemListContainer = () => {
     <div>
       <div className="productos">
         {productos.map((producto) => (
-          <Productos key={producto.id} producto={producto} />
+          <ItemList key={producto.id} producto={producto} />
         ))}
       </div>
     </div>

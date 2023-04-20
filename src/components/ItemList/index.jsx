@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./productos.css";
+import "./itemList.css";
 
-const Productos = ({ producto }) => {
+const ItemList = ({ producto }) => {
   return (
     <Link to={`/item/${producto.id}`} className="padd-10">
       <div className="card-prod">
@@ -17,4 +17,4 @@ const Productos = ({ producto }) => {
   );
 };
 
-export default Productos;
+export default ItemList;
