@@ -32,11 +32,9 @@ const ItemDetailContainer = ( { data } ) => {
   return (
     <div>
       {isLoading ? (
-        <div className="loader">
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-    </div>
+        <div className="container-loader">
+          <div className="loader"></div>
+        </div>
       ) : producto ? (
         <div className="container-details">
           <div className="img-details">

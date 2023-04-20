@@ -30,7 +30,6 @@ const Cart = () => {
     getOrder();
   };
 
-
   const [orderId, setOrderId] = useState("");
 
   const order = {
@@ -170,7 +169,6 @@ const Cart = () => {
                 onSubmit={handleSubmit}
                 buyerData={buyerData}
                 setBuyerData={setBuyerData}
-                orderId={orderId}
                 onPurchase={handlePurchase}
               />
             </div>

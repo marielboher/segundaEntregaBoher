@@ -1,10 +1,7 @@
 import React from "react";
 import "./featured.css";
-import Manta from "../../assets/multimedia/manta.webp";
-import Lampara from "../../assets/multimedia/lampara.webp";
 import CardFeatured from "../CardFeatured";
 import { Link } from "react-router-dom";
-
 
 const Featured = ({ productos }) => {
   let mostrar = productos.slice(0, 4);
@@ -36,8 +33,7 @@ const Featured = ({ productos }) => {
             sophisticated and exclusive environments.
           </p>
         </div>
-        <div className="section-details">
-        </div>
+        <div className="section-details"></div>
       </div>
     </>
   );

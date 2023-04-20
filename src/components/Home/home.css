@@ -150,6 +150,26 @@
     width: 3rem;
   }
 
+  @media screen and (max-width: 1045px) {
+    .home{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .home p{
+     text-align: center;
+     padding: 40px;
+     width: 700px;
+    }
+    .imagen-inicio{
+      margin-top: 5px;
+      height: 420px;
+      margin-bottom: 25px;
+      width: auto;
+    }
+  }
+
   @media screen and (max-width: 900px) {
     .home{
       flex-wrap: wrap;

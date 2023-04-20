@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import './from.css'
 
 
-const Form = ({ onSubmit, buyerData, setBuyerData, orderId}) => {
+const Form = ({ onSubmit, buyerData, setBuyerData}) => {
     const {
         register,
         handleSubmit,

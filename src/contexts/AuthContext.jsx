@@ -20,32 +20,30 @@ export const useAuth = () => {
 };
 
 export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-const [user, setUser] = useState(null)
-const [loading, setLoading] = useState(true)
+  const signup = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password);
 
-const signup = (email, password) =>
- createUserWithEmailAndPassword(auth, email, password);
+  const login = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
 
- const login = (email, password) =>
- signInWithEmailAndPassword(auth, email, password);
+  const logout = () => signOut(auth);
 
-const logout = () => signOut(auth)
+  const loginWithGoogle = () => {
+    const googleProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleProvider);
+  };
 
-const loginWithGoogle = () => {
-  const googleProvider = new GoogleAuthProvider()
-  signInWithPopup(auth, googleProvider)
-}
+  useEffect(() => {
+    const unSubscribed = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
 
-useEffect(() => {
-    const unSubscribed = onAuthStateChanged(auth, currentUser => {
-        setUser(currentUser)
-        setLoading(false)
-    })
-
-    return () => unSubscribed()
-}, [])
-
+    return () => unSubscribed();
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -55,12 +53,10 @@ useEffect(() => {
         user,
         logout,
         loading,
-        loginWithGoogle
+        loginWithGoogle,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 }
-
-

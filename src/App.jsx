@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import User from "./components/User";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,9 +25,30 @@ function App() {
           }
         />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
-        <Route path="/category/:categoryName" element={<ItemListContainer />} />
-        <Route path="/products" element={<ItemListContainer />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/category/:categoryName"
+          element={
+            <ProtectedRoute>
+              <ItemListContainer />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <ItemListContainer />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
@@ -38,6 +60,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer/>
     </div>
   );
 }

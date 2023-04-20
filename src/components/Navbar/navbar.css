@@ -14,7 +14,7 @@
   float: left;
 }
 
-.hover-menu:hover > ul {
+.hover-menu:hover>ul {
   display: flex;
 }
 
@@ -30,6 +30,7 @@
   border: 1px solid #ccc;
   z-index: 999;
 }
+
 .hover-menu:hover .sub-menu {
   display: block;
 }
@@ -45,7 +46,7 @@
 .sub-menu li:last-child {
   border-bottom: none;
 }
-  
+
 .info-envio {
   background-color: #F5EFE6;
   display: flex;
@@ -132,7 +133,7 @@ li:after {
   transition-property: width, left;
 }
 
-.hover-menu ul li:hover{
+.hover-menu ul li:hover {
   color: #AD8B73;
 }
 
@@ -161,7 +162,7 @@ li:after {
   cursor: pointer;
 }
 
-.nav-container{
+.nav-container {
   width: 100%;
   height: 70px;
   position: sticky;
@@ -174,7 +175,7 @@ li:after {
   border-bottom: 1px solid #D0B8A8;
 }
 
-.nav-wrapper{
+.nav-wrapper {
   margin: auto;
   width: 95%;
   max-width: 1388px;
@@ -185,7 +186,7 @@ li:after {
   position: relative;
 }
 
-.icon-logo{
+.icon-logo {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -195,7 +196,8 @@ li:after {
 .logo {
   height: 10px;
 }
-.menu{
+
+.menu {
   height: 100%;
   display: flex;
   display: flex;
@@ -208,11 +210,12 @@ li:after {
   padding: 0.5rem 1.5rem;
 } */
 
-.menu-item a{
+.menu-item a {
   font-size: 14px;
   text-decoration: none;
 }
-.menu-item li{
+
+.menu-item li {
   font-size: 14px;
   text-decoration: none;
   list-style-type: none;
@@ -239,7 +242,8 @@ li:after {
   list-style-type: none;
   color: #AD8B73;
 }
-.icon-mobile{
+
+.icon-mobile {
   display: none;
 }
 
@@ -252,6 +256,7 @@ li:after {
   color: #AD8B73;
   position: inherit;
 }
+
 #checkbox {
   display: none;
 }
@@ -280,44 +285,45 @@ li:after {
   transition-duration: .8s;
 }
 
-#bar1,#bar3 {
+#bar1, #bar3 {
   width: 70%;
 }
 
-#checkbox:checked + .toggle .bars {
+#checkbox:checked .bars {
   position: absolute;
   transition-duration: .5s;
 }
 
-#checkbox:checked + .toggle #bar2 {
+#checkbox:checked #bar2 {
   transform: scaleX(0);
   transition-duration: .5s;
 }
 
-#checkbox:checked + .toggle #bar1 {
+#checkbox:checked #bar1 {
   width: 100%;
   transform: rotate(45deg);
   transition-duration: .5s;
 }
 
-#checkbox:checked + .toggle #bar3 {
+#checkbox:checked #bar3 {
   width: 100%;
   transform: rotate(-45deg);
   transition-duration: .5s;
 }
 
-#checkbox:checked + .toggle {
+#checkbox:checked {
   transition-duration: .5s;
   transform: rotate(180deg);
 }
 
 
-@media(max-width: 668px){
-  .icon-mobile{
+@media(max-width: 668px) {
+  .icon-mobile {
     display: flex;
     color: #AD8B73;
     font-size: 2rem;
   }
+
   .menu {
     width: 100%;
     height: 30vh;
@@ -329,30 +335,34 @@ li:after {
     background-color: #F5EFE6;
     border-bottom: #AD8B73 1px solid;
   }
+
   .menu-click {
     width: 100%;
     height: 28vh;
     position: absolute;
     top: 80px;
-    left: -100%;
+    left: -110%;
     flex-direction: column;
     transition: 0.5s all ease-in;
     background-color: #F5EFE6;
   }
+
   .shop {
     flex-direction: column;
   }
-  .menu-item{
+
+  .menu-item {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .cart-container{
+
+  .cart-container {
     margin-left: 10px;
     position: absolute;
     top: 0;
     right: 0;
   }
-  
+
 
 }
