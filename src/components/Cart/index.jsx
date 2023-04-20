@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "./cart.css";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import Form from "../Checkout/form";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const {
@@ -18,12 +18,12 @@ const Cart = () => {
   } = useContext(CartContext);
 
   const [buyerData, setBuyerData] = useState({
-  name: '',
-  adress: '',
-  phone: '',
-  email: '',
-  confirmEmail: '',
-});
+    name: "",
+    adress: "",
+    phone: "",
+    email: "",
+    confirmEmail: "",
+  });
 
   const handleSubmit = (data) => {
     setBuyerData(data);
@@ -49,7 +49,7 @@ const Cart = () => {
 
   const messageOrder = (orderId) => {
     Swal.fire({
-      position: "top-end",
+      position: "center",
       icon: "success",
       title: `Successful! order number: ${orderId} -  Date: ${dateStr}`,
       showConfirmButton: false,
@@ -66,7 +66,7 @@ const Cart = () => {
 
   const orderWithDate = {
     ...order,
-    date: dateStr
+    date: dateStr,
   };
 
   const getOrder = () => {
@@ -83,7 +83,7 @@ const Cart = () => {
         setOrderId(id);
         console.log(id);
         messageOrder(id);
-        clear()
+        clear();
       });
       console.log(order);
     }

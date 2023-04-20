@@ -9,10 +9,11 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState();
 
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
-  const [error, setError] = useState();
+  
 
   const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });

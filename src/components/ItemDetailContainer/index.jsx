@@ -7,8 +7,10 @@ import db from "../../../db/firebase-config";
 
 const ItemDetailContainer = ( { data } ) => {
   const { addProduct } = useContext(CartContext)
+
   const [producto, setProducto] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
   const { id } = useParams();
   const productDB = collection(db, "productos");
 
@@ -20,12 +22,12 @@ const ItemDetailContainer = ( { data } ) => {
       id: doc.id,
     }));
     const productoEncontrado = productos.find((producto) => producto.id == id);
-          setProducto(productoEncontrado);
-          setIsLoading(false);
+    setProducto(productoEncontrado);
+    setIsLoading(false);
   }
 
   useEffect(() => {
-  getItems()
+    getItems()
   }, [id])
 
 
